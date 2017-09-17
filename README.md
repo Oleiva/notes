@@ -6,15 +6,15 @@
 
 - Инструментарий, http://goo.gl/7YdrkT 
 - Деструктивное присваивание, http://goo.gl/2RKQTy 
-- Оператор расширения и оставшиеся параметры, http://goo.gl/FJUkQQ 
-- Стрелочные функции, http://goo.gl/E3JK1U 
-- Литералы шаблона, http://goo.gl/RAxvFd 
-- Литералы объекта, http://goo.gl/TSBq07 
-- Классы, http://goo.gl/WFsdZC 
-- Ключевые слова let и const, http://goo.gl/7ux08Z 
-- Символы, http://goo.gl/lGzHaL 
-- Итераторы, http://goo.gl/M7l2bA 
-- Генераторы, http://goo.gl/UQaPL9 
+- Оператор расширения и оставшиеся параметры, http://css-live.ru/articles/vkusnosti-es6-operator-rasshireniya-v-podrobnostyax.html
+- Стрелочные функции, http://css-live.ru/articles/es6-strelochnye-funkcii-iznutri.html
+- Литералы шаблона, http://css-live.ru/articles/es6-literaly-shablona-iznutri.html 
+- Литералы объекта, http://css-live.ru/articles/es6-vozmozhnosti-literala-obekta-iznutri.html
+- Классы, http://css-live.ru/articles/es6-klassy-iznutri.html 
+- Ключевые слова let и const, http://css-live.ru/articles/es6-let-const-i-vremennaya-myortvaya-zona-vmz-iznutri.html
+- Символы, http://css-live.ru/articles/es6-simvoly-iznutri.html 
+- Итераторы, http://css-live.ru/articles/es6-iteratory-iznutri.html
+- Генераторы, http://css-live.ru/articles/es6-generatory-iznutri.html
 - Промисы, https://goo.gl/jfvHb5 
 - Методы объекта Map, http://goo.gl/tBlPKe 
 - Объекты WeakMap, Set и WeakSet, http://goo.gl/A83TFc 
