@@ -20,6 +20,7 @@ BlStatic = (function() {
         console.log("1");
         conf_protocol = "https";
     } else {
+        console.log("2");
         conf_protocol = "http";
     }
 
