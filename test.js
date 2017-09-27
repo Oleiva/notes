@@ -1,11 +1,26 @@
 BlStatic = (function() {
 
+    var conf_token = "development";
+    var conf_SSL_HEADER = "x-forwarded-proto";
+    var conf_protocol;
+    var conf_access_token_life =2000;
 
+    //
+    var req = new XMLHttpRequest();
+    console.log(req);
+    
+    req.open('GET', document.location, false);
+    req.send(null);
+    var headers = req.getAllResponseHeaders().toLowerCase();
+    console.log(headers);
+    //
 
-// @import play.Play
-// @SSL_HEADER = @{"x-forwarded-proto"}
-// @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
-// @token =  @{Play.application().configuration().getString("tracker.token")}
+    if (request.getHeader(conf_SSL_HEADER) !== null && request.getHeader(conf_SSL_HEADER).contains("https")) {
+        conf_protocol = "https";
+    } else {
+        conf_protocol = "http";
+    }
+
     var BlConstants = {
         PR: 'bl_',     //PREFIX
         IT: 'init',    //INIT
@@ -24,14 +39,15 @@ BlStatic = (function() {
         STB_BR: 'stb_br',
         AT: 'AT'
     };
+
     var BlConfig = {
         ST_SIZE: 3072,
-        TOKEN: '@token',
-        URLTOKEN: '@protocol://@request.host/v3.0/token',
-        URL: '@protocol://@request.host/v3.0/event',
-        URLBATCH: '@protocol://@request.host/v3.0/batch',
+        TOKEN: conf_token,
+        URLTOKEN: conf_protocol+'://@request.host/v3.0/token',
+        URL: conf_protocol+'://@request.host/v3.0/event',
+        URLBATCH: conf_protocol+'://@request.host/v3.0/batch',
         NONE: 'staticb-none',
-        ATL: '@{Play.application().configuration().getLong("access.token.life") - 10000}',   //AccessToken Life
+        ATL: conf_access_token_life - 10000,   //AccessToken Life
         SELECTOR:{
             '.mainpage ul.list-dropmenu, .mainpage-inner':  ['click','mousemove','contextmenu','mousedown','mouseup'],
             '.mainpage-inner input[type=text], .mainpage-inner input[type=checkbox], .mainpage-inner input[type=radio], .mainpage-inner input[type=hidden], .mainpage-inner select': ['change','paste','focus','keydown','copy','cut','input'],
@@ -365,7 +381,6 @@ BlStatic = (function() {
             }
         }
     })();
-
 
     var BlFilter = (function(){
 
@@ -1021,6 +1036,39 @@ BlStatic = (function() {
             }
         }
     })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     return {
