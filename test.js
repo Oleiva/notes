@@ -3,19 +3,20 @@ BlStatic = (function() {
     var conf_token = "development";
     var conf_SSL_HEADER = "x-forwarded-proto";
     var conf_protocol;
-    var conf_access_token_life =2000;
+    var conf_access_token_life = 2000;
 
     //
-    var req = new XMLHttpRequest();
-    console.log(req);
-    
-    req.open('GET', document.location, false);
-    req.send(null);
-    var headers = req.getAllResponseHeaders().toLowerCase();
+    var request = new XMLHttpRequest();
+    console.log(request);
+
+    request.open('GET', document.location, false);
+    request.send(null);
+    var headers = request.getAllResponseHeaders().toLowerCase();
     console.log(headers);
     //
 
     if (request.getHeader(conf_SSL_HEADER) !== null && request.getHeader(conf_SSL_HEADER).contains("https")) {
+        console.log(request.getHeader(conf_SSL_HEADER) !== null && request.getHeader(conf_SSL_HEADER).contains("https"));
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
@@ -43,9 +44,9 @@ BlStatic = (function() {
     var BlConfig = {
         ST_SIZE: 3072,
         TOKEN: conf_token,
-        URLTOKEN: conf_protocol+'://@request.host/v3.0/token',
-        URL: conf_protocol+'://@request.host/v3.0/event',
-        URLBATCH: conf_protocol+'://@request.host/v3.0/batch',
+        URLTOKEN: conf_protocol+'://'+request+'.host/v3.0/token',
+        URL: conf_protocol+'://'+request+'.host/v3.0/event',
+        URLBATCH: conf_protocol+'://'+request+'.host/v3.0/batch',
         NONE: 'staticb-none',
         ATL: conf_access_token_life - 10000,   //AccessToken Life
         SELECTOR:{
@@ -502,6 +503,8 @@ BlStatic = (function() {
         return {
 
             send: function(url, data, onSuccess, onError, async) {
+                console.log("url");
+                console.log(url);
                 return __sender__.send(url, data, onSuccess, onError, async);
             },
 
@@ -1036,39 +1039,6 @@ BlStatic = (function() {
             }
         }
     })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return {
