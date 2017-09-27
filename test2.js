@@ -9,10 +9,10 @@ BlStatic = (function() {
     var request = new XMLHttpRequest();
     console.log(request);
 
-//     request.open('GET', document.location, false);
-//     request.send(null);
     var headers = request.getAllResponseHeaders().toLowerCase();
+    console.log("headers");
     console.log(headers);
+    
     //
 
     if (request.getHeader(conf_SSL_HEADER) !== null && request.getHeader(conf_SSL_HEADER).contains("https")) {
