@@ -1,13 +1,13 @@
 BlStatic = (function() {
 
-    var conf_token = "development";
-
+    // var conf_token = "development";
+    
+    var conf_token = "qno83e1ch5he2v4";
     var conf_protocol = 'https';
     var conf_access_token_life = 2000;
-    var conf_host = 'static.blender.co.il';
+    var conf_host = 'static.blender.co.il'; // прод 7
 
-
-
+    
     // @SSL_HEADER = @{"x-forwarded-proto"}
     // @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
 
@@ -917,10 +917,11 @@ BlStatic = (function() {
             run: function(params) {
                 BlNetwork.send(BlConfig.URLTOKEN, {token: BlConfig.TOKEN},
                     function(response) {
+                        console.log(BlConfig.URLTOKEN);
                         BlMain.__token__ = (response) ? JSON.parse(BlMain.wake(response)) : {};
                         migrate();
                         start(params);
-                        console.log(BlConfig.URLTOKEN);           
+
                     },
                     function(error){}
                 );
