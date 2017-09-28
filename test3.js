@@ -1,26 +1,23 @@
 BlStatic = (function() {
 
     var conf_token = "development";
-    // var conf_SSL_HEADER = "x-forwarded-proto";
+
     var conf_protocol;
     var conf_access_token_life = 2000;
 
-    //
     var request = new XMLHttpRequest();
     console.log(request);
-
     var headers = request.getAllResponseHeaders().toLowerCase();
     console.log("headers");
     console.log(headers);
     var conf_ssl_header =  request.getResponseHeader("x-forwarded-proto");
-    
-    //
+    console.log(conf_ssl_header);
+
 
     if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
         console.log("1");
         conf_protocol = "https";
     } else {
-        console.log("2");
         conf_protocol = "http";
     }
 
