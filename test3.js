@@ -2,24 +2,14 @@ BlStatic = (function() {
 
     var conf_token = "development";
 
-    var conf_protocol;
+    var conf_protocol = 'https';
     var conf_access_token_life = 2000;
-
-    var request = new XMLHttpRequest();
-    console.log(request);
-    var headers = request.getAllResponseHeaders().toLowerCase();
-    console.log("headers");
-    console.log(headers);
-    var conf_ssl_header =  request.getResponseHeader("x-forwarded-proto");
-    console.log(conf_ssl_header);
+    var conf_host = 'static.blender.co.il';
 
 
-    if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
-        console.log("1");
-        conf_protocol = "https";
-    } else {
-        conf_protocol = "http";
-    }
+
+    // @SSL_HEADER = @{"x-forwarded-proto"}
+    // @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
 
     var BlConstants = {
         PR: 'bl_',     //PREFIX
@@ -39,15 +29,14 @@ BlStatic = (function() {
         STB_BR: 'stb_br',
         AT: 'AT'
     };
-
     var BlConfig = {
         ST_SIZE: 3072,
         TOKEN: conf_token,
-        URLTOKEN: conf_protocol+'://'+request+'.host/v3.0/token',
-        URL: conf_protocol+'://'+request+'.host/v3.0/event',
-        URLBATCH: conf_protocol+'://'+request+'.host/v3.0/batch',
+        URLTOKEN: conf_protocol+'://'+conf_host+'/v3.0/token',
+        URL: conf_protocol+'://'+conf_host+'/v3.0/event',
+        URLBATCH: conf_protocol+'://'+conf_host+'/v3.0/batch',
         NONE: 'staticb-none',
-        ATL: conf_access_token_life - 10000,   //AccessToken Life
+        ATL: conf_access_token_life- 10000,   //AccessToken Life
         SELECTOR:{
             '.mainpage ul.list-dropmenu, .mainpage-inner':  ['click','mousemove','contextmenu','mousedown','mouseup'],
             '.mainpage-inner input[type=text], .mainpage-inner input[type=checkbox], .mainpage-inner input[type=radio], .mainpage-inner input[type=hidden], .mainpage-inner select': ['change','paste','focus','keydown','copy','cut','input'],
@@ -55,6 +44,13 @@ BlStatic = (function() {
             '.staticb-form input, .staticb-form textarea, .staticb-form select': ['change','paste','focus','keydown','copy','cut','input']
         }
     };
+
+
+
+
+
+
+
 
     var BlEvent = (function(){
 
@@ -693,6 +689,7 @@ BlStatic = (function() {
                         error,
                         async
                     );
+                    console.log( BlConfig.URL);
                 } else if (params.seance) {
                     BlNetwork.send(
                         BlConfig.URLBATCH,
@@ -701,6 +698,7 @@ BlStatic = (function() {
                         error,
                         async
                     );
+                    console.log( BlConfig.URLBATCH);
                 } else {
                     var keys = BlStorage.keys();
                     for(var i = 0; i < keys.length; i++) {
@@ -922,6 +920,7 @@ BlStatic = (function() {
                         BlMain.__token__ = (response) ? JSON.parse(BlMain.wake(response)) : {};
                         migrate();
                         start(params);
+                        console.log(BlConfig.URLTOKEN);           
                     },
                     function(error){}
                 );
