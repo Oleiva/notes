@@ -1,13 +1,14 @@
 BlStatic = (function() {
 
     // var conf_token = "development";
-    
-    var conf_token = "qno83e1ch5he2v4";
-    var conf_protocol = 'https';
-    var conf_access_token_life = 2000;
-    var conf_host = 'static.blender.co.il'; // прод 7
 
-    
+    var conf_token = "qno83e1ch5he2v4";
+    var conf_protocol = 'http';
+    var conf_access_token_life = 2000;
+    var conf_host = 'localhost:5000'; // прод 7
+
+    // http://localhost:5000/v3.0/token
+
     // @SSL_HEADER = @{"x-forwarded-proto"}
     // @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
 
