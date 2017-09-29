@@ -16,11 +16,6 @@ BlStatic = (function() {
     // request.send(null);
     var headers = request.getAllResponseHeaders().toLowerCase();
 
-
-    console.log(headers);
-
-
-
     if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
         conf_protocol = "https";
     } else {
