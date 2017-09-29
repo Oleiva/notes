@@ -11,14 +11,16 @@ BlStatic = (function() {
     // http://localhost:5000/v3.0/token
 
 
-    var req = new XMLHttpRequest();
-    req.open('GET', document.location, false);
-    req.send(null);
-    var headers = req.getAllResponseHeaders().toLowerCase();
+    var request = new XMLHttpRequest();
+    request.open('GET', document.location, false);
+    request.send(null);
+    var headers = request.getAllResponseHeaders().toLowerCase();
 
 
     console.log(headers);
 
+    
+    
     if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
         conf_protocol = "https";
     } else {
