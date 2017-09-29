@@ -5,22 +5,31 @@ BlStatic = (function() {
     var conf_token = "qno83e1ch5he2v4";
     var conf_protocol = 'http';
     var conf_access_token_life = 2000;
-    var conf_host = 'localhost:5000'; // прод 7
-
+    // var conf_host = 'localhost:5000'; // прод 7
+    var conf_host = window.location.host; // прод 7
+    var conf_ssl_header = "x-forwarded-proto";
     // http://localhost:5000/v3.0/token
 
-    // @SSL_HEADER = @{"x-forwarded-proto"}
-    // @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
 
     var req = new XMLHttpRequest();
     req.open('GET', document.location, false);
     req.send(null);
     var headers = req.getAllResponseHeaders().toLowerCase();
-    alert(headers);
+
+
     console.log(headers);
 
-    
-    
+    if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
+        conf_protocol = "https";
+    } else {
+        conf_protocol = "http";
+    }
+
+    console.log(conf_protocol);
+
+
+
+
     var BlConstants = {
         PR: 'bl_',     //PREFIX
         IT: 'init',    //INIT
