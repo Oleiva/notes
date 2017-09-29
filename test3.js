@@ -477,6 +477,9 @@ BlStatic = (function() {
             },
 
             send: function(url, data, onSuccess, onError, async){
+                console.log("try to send");
+                console.log(url, data, onSuccess, onError, async);
+
                 data['method'] = 'POST';
                 if (BlMain.__token__) {
                     data[BlConstants.AT] = BlMain.__token__.access;
