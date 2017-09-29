@@ -8,8 +8,6 @@ BlStatic = (function() {
     // var conf_host = 'localhost:5000'; // прод 7
     var conf_host = window.location.host; // прод 7
     var conf_ssl_header = "x-forwarded-proto";
-    // http://localhost:5000/v3.0/token
-
 
     var request = new XMLHttpRequest();
     request.open('GET', document.location, false);
