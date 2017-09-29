@@ -16,11 +16,16 @@ BlStatic = (function() {
     // request.send(null);
     var headers = request.getAllResponseHeaders().toLowerCase();
 
-    if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
-        conf_protocol = "https";
-    } else {
+
+    console.log(headers);
+
+
+
+    // if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
+    //     conf_protocol = "https";
+    // } else {
         conf_protocol = "http";
-    }
+    // }
 
     console.log(conf_protocol);
 
