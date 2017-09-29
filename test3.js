@@ -12,6 +12,15 @@ BlStatic = (function() {
     // @SSL_HEADER = @{"x-forwarded-proto"}
     // @protocol = @{if(request.getHeader(SSL_HEADER)!=null&&request.getHeader(SSL_HEADER).contains("https")){"https"}else{"http"}}
 
+    var req = new XMLHttpRequest();
+    req.open('GET', document.location, false);
+    req.send(null);
+    var headers = req.getAllResponseHeaders().toLowerCase();
+    alert(headers);
+    console.log(headers);
+
+    
+    
     var BlConstants = {
         PR: 'bl_',     //PREFIX
         IT: 'init',    //INIT
