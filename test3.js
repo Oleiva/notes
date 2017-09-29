@@ -5,8 +5,8 @@ BlStatic = (function() {
     var conf_token = "qno83e1ch5he2v4";
     var conf_protocol = 'http';
     var conf_access_token_life = 2000;
-    // var conf_host = 'localhost:5000'; // прод 7
-    var conf_host = window.location.host; // прод 7
+    var conf_host = 'localhost:5000'; // прод 7
+    // var conf_host = window.location.host; // прод 7
     var conf_ssl_header = "x-forwarded-proto";
     // http://localhost:5000/v3.0/token
 
