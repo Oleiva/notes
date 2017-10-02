@@ -6,22 +6,20 @@ BlStatic = (function() {
     var conf_protocol = 'http';
     var conf_access_token_life = 2000;
     var conf_host = 'localhost:5000'; // прод 7
-    var conf_ssl_header = "x-forwarded-proto";
-
-
+    // var conf_ssl_header = "x-forwarded-proto";
+    
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
 
     console.log(headers);
-    console.log(request.getResponseHeader(conf_ssl_header));
+    var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
 
 
-
-//     if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
-//         conf_protocol = "https";
-//     } else {
+    if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
+        conf_protocol = "https";
+    } else {
         conf_protocol = "http";
-//     }
+    }
 
     console.log(conf_protocol);
 
