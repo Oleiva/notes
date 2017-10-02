@@ -1,19 +1,19 @@
+/* Version 1.0 * */
+
 BlStatic = (function() {
 
     var conf_token = "development";
-
-
+    
     var conf_protocol = 'http';
     var conf_access_token_life = 2000;
-    var conf_host = 'localhost:5000'; // прод 7
-    // var conf_ssl_header = "x-forwarded-proto";
-    
+    var conf_host = 'localhost:5000'; 
+
+
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
 
     console.log(headers);
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
-
 
     if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
         conf_protocol = "https";
@@ -22,9 +22,6 @@ BlStatic = (function() {
     }
 
     console.log(conf_protocol);
-
-
-
 
     var BlConstants = {
         PR: 'bl_',     //PREFIX
@@ -59,12 +56,6 @@ BlStatic = (function() {
             '.staticb-form input, .staticb-form textarea, .staticb-form select': ['change','paste','focus','keydown','copy','cut','input']
         }
     };
-
-
-
-
-
-
 
 
     var BlEvent = (function(){
