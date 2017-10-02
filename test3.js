@@ -17,11 +17,11 @@ BlStatic = (function() {
 
 
 
-    if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
-        conf_protocol = "https";
-    } else {
+//     if (request.getHeader(conf_ssl_header) !== null && request.getHeader(conf_ssl_header).contains("https")) {
+//         conf_protocol = "https";
+//     } else {
         conf_protocol = "http";
-    }
+//     }
 
     console.log(conf_protocol);
 
