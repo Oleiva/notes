@@ -13,6 +13,7 @@ BlStatic = (function() {
     var headers = request.getAllResponseHeaders().toLowerCase();
 
     console.log(headers);
+    console.log(request.getResponseHeader(conf_ssl_header));
 
 
 
