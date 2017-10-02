@@ -3,24 +3,23 @@
 BlStatic = (function() {
 
     var conf_token = "development";
-
-    var conf_protocol = 'http';
     var conf_access_token_life = 2000;
     var conf_host = 'localhost:5000';
-
-
+    
+    
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
-
-    console.log(headers);
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
-
+    
+    var conf_protocol;
     if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
     }
-
+    
+    
+    console.log(headers);
     console.log(conf_protocol);
 
     var BlConstants = {
@@ -41,6 +40,7 @@ BlStatic = (function() {
         STB_BR: 'stb_br',
         AT: 'AT'
     };
+
     var BlConfig = {
         ST_SIZE: 3072,
         TOKEN: conf_token,
@@ -462,8 +462,6 @@ BlStatic = (function() {
             },
 
             send: function(url, data, onSuccess, onError, async){
-                console.log("try to send");
-                console.log(url, data, onSuccess, onError, async);
 
                 data['method'] = 'POST';
                 if (BlMain.__token__) {
@@ -498,7 +496,6 @@ BlStatic = (function() {
                 }
 
                 delete(data['method']);
-                console.log(JSON.stringify(data));
 
                 request.send(JSON.stringify(data));
             }
@@ -509,8 +506,6 @@ BlStatic = (function() {
         return {
 
             send: function(url, data, onSuccess, onError, async) {
-                console.log("url");
-                console.log(url);
                 return __sender__.send(url, data, onSuccess, onError, async);
             },
 
@@ -700,7 +695,6 @@ BlStatic = (function() {
                         error,
                         async
                     );
-                    console.log( BlConfig.URL);
                 } else if (params.seance) {
                     BlNetwork.send(
                         BlConfig.URLBATCH,
@@ -709,7 +703,6 @@ BlStatic = (function() {
                         error,
                         async
                     );
-                    console.log( BlConfig.URLBATCH);
                 } else {
                     var keys = BlStorage.keys();
                     for(var i = 0; i < keys.length; i++) {
@@ -928,7 +921,6 @@ BlStatic = (function() {
             run: function(params) {
                 BlNetwork.send(BlConfig.URLTOKEN, {token: BlConfig.TOKEN},
                     function(response) {
-                        console.log(BlConfig.URLTOKEN);
                         BlMain.__token__ = (response) ? JSON.parse(BlMain.wake(response)) : {};
                         migrate();
                         start(params);
