@@ -494,7 +494,7 @@ BlStatic = (function() {
             },
 
             send: function(url, data, onSuccess, onError, async){
-                log("post");
+                log_er("post");
                 log(url, data, onSuccess, onError, async);
 
                 data['method'] = 'POST';
@@ -1099,5 +1099,11 @@ BlStatic = (function() {
 function log(msg) {
     if (log_trigger) {
         console.log(msg);
+    }
+}
+function log_er(msg) {
+    // https://stackoverflow.com/questions/7505623/colors-in-javascript-console
+    if (log_trigger) {
+        console.log(msg, 'background: #222; color: #bada55');
     }
 }
