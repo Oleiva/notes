@@ -6,7 +6,7 @@ BlStatic = (function() {
 
     var conf_token = "development";
 
-    var conf_access_token_life = 2500;
+    var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
     var conf_host = 'localhost:5000';
 
 
@@ -55,8 +55,8 @@ BlStatic = (function() {
         URL: conf_protocol+'://'+conf_host+'/v3.0/event',
         URLBATCH: conf_protocol+'://'+conf_host+'/v3.0/batch',
         NONE: 'staticb-none',
-        // ATL: conf_access_token_life - 10000,   //AccessToken Life
-        ATL: conf_access_token_life,   //AccessToken Life
+        ATL: conf_access_token_life - 10000,   //AccessToken Life
+
         SELECTOR:{
             '.mainpage ul.list-dropmenu, .mainpage-inner':  ['click','mousemove','contextmenu','mousedown','mouseup'],
             '.mainpage-inner input[type=text], .mainpage-inner input[type=checkbox], .mainpage-inner input[type=radio], .mainpage-inner input[type=hidden], .mainpage-inner select': ['change','paste','focus','keydown','copy','cut','input'],
@@ -887,6 +887,7 @@ BlStatic = (function() {
                 if(BlMain.checkInitTime()){
                     BlStorage.push();
                 }
+
             },((BlConfig.ATL/100|0)*70));
             //update timepage
             options.intervalUpdateTimepage = window.setInterval(function() {
