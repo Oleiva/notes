@@ -57,13 +57,7 @@ BlStatic = (function() {
             '.staticb-form input, .staticb-form textarea, .staticb-form select': ['change','paste','focus','keydown','copy','cut','input']
         }
     };
-
-    var log = (function(msg){
-        if (conf_token ==="development"){
-            console.log(msg);
-        }
-    })();
-
+    
     var BlEvent = (function(){
         log("print ln");
 
@@ -1057,3 +1051,10 @@ BlStatic = (function() {
         }
     }
 })();
+
+
+function log(msg) {
+    if (conf_token === "development") {
+        console.log(msg);
+    }
+}
