@@ -1,24 +1,25 @@
-/* Version 1.0 * */
+/*Version v3.0.developer*/
 
 BlStatic = (function() {
+    console.log("Hello from static.js for developers");
 
     var conf_token = "development";
     var conf_access_token_life = 2000;
     var conf_host = 'localhost:5000';
-    
-    
+
+
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
-    
+
     var conf_protocol;
     if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
     }
-    
-    
+
+
     console.log(headers);
     console.log(conf_protocol);
 
@@ -57,8 +58,14 @@ BlStatic = (function() {
         }
     };
 
+    var log = (function(msg){
+        if (conf_token ==="development"){
+            console.log(msg);
+        }
+    })();
 
     var BlEvent = (function(){
+        log("print ln");
 
         function extend(Child, Parent) {
             var F = function() { };
@@ -1041,6 +1048,7 @@ BlStatic = (function() {
             }
         }
     })();
+
 
 
     return {
