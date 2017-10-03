@@ -6,7 +6,7 @@ BlStatic = (function() {
 
     var conf_token = "development";
 
-    var conf_access_token_life = 2000;
+    var conf_access_token_life = 2500;
     var conf_host = 'localhost:5000';
 
 
