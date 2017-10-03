@@ -1,10 +1,11 @@
 /*Version v3.0.developer*/
 
-var log_trigger =true;
+var log_trigger =false;
 BlStatic = (function() {
     console.log("Hello from static.js for developers");
 
     var conf_token = "development";
+
     var conf_access_token_life = 2000;
     var conf_host = 'localhost:5000';
 
@@ -18,6 +19,10 @@ BlStatic = (function() {
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
+    }
+
+    if (conf_token.valueOf()==="development"){
+        log_trigger =true;
     }
 
 
@@ -71,7 +76,7 @@ BlStatic = (function() {
         }
 
         var Handler = {
-          
+
             __default__ : function() {
                 log("f");
                 this.process = function () {console.log('__default__')};
@@ -387,7 +392,7 @@ BlStatic = (function() {
 
             getSelectedText: function(element){
                 log("get selected text");
-                
+
                 var text = "";
                 if(element){
                     try{
@@ -538,7 +543,7 @@ BlStatic = (function() {
 
             getCORSRequest: function (type, url, async) {
                 log("getCORS");
-                
+
                 async = async !== false;
                 var xhr = null;
                 if ("undefined" !== typeof XMLHttpRequest) {
