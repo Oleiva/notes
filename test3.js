@@ -1,6 +1,5 @@
 /*Version v3.0.developer*/
 
-
 var log_trigger =true;
 BlStatic = (function() {
     console.log("Hello from static.js for developers");
@@ -61,7 +60,7 @@ BlStatic = (function() {
     };
 
     var BlEvent = (function(){
-        log("print ln");
+        log("BlEvent");
 
         function extend(Child, Parent) {
             var F = function() { };
@@ -72,13 +71,16 @@ BlStatic = (function() {
         }
 
         var Handler = {
+          
             __default__ : function() {
+                log("f");
                 this.process = function () {console.log('__default__')};
                 this.asJson  = function () {console.log('__default__')};
                 this.store   = function () {console.log('__default__')};
             },
 
             __abstract__ : function(){
+                log("f");
                 this.__data__ = {ts: new Date().getTime() - BlMain.get('id')};
 
                 this.asJson = function(){
@@ -86,6 +88,7 @@ BlStatic = (function() {
                 };
 
                 this.setPath = function(target){
+                    log("f");
                     if(!target) return;
                     if(target.getAttribute('name')){
                         return this.__data__.name = target.getAttribute('name');
@@ -97,6 +100,7 @@ BlStatic = (function() {
                 };
 
                 this.setDataAttributes = function(target) {
+                    log("f");
                     if(!target) return;
                     var dataset = target.dataset;
                     (dataset && dataset.stbName) ? this.__data__['data-name'] = dataset.stbName : null;
@@ -110,6 +114,7 @@ BlStatic = (function() {
             },
 
             'click' : function(){
+                log("click");
                 Handler['click'].superclass.constructor();
                 this.process = function(e){
                     var target = e.target;
@@ -123,6 +128,7 @@ BlStatic = (function() {
             },
 
             'mousemove' :  function(){
+                log("mousemove");
                 Handler['mousemove'].superclass.constructor();
                 this.process = function(e){
                     this.setPath(e.target);
@@ -137,6 +143,7 @@ BlStatic = (function() {
             },
 
             'change' : function(){
+                log("change");
                 Handler['change'].superclass.constructor();
                 this.process = function(e){
                     //different value from checkbox and text input
@@ -168,6 +175,7 @@ BlStatic = (function() {
             },
 
             'paste' : function(){
+                log("paste");
                 Handler['paste'].superclass.constructor();
                 this.process = function(e){
                     this.setPath(e.target);
@@ -177,6 +185,7 @@ BlStatic = (function() {
             },
 
             'copy' : function(){
+                log("copy");
                 Handler['copy'].superclass.constructor();
                 this.process = function(e){
                     this.setPath(e.target);
@@ -186,6 +195,7 @@ BlStatic = (function() {
             },
 
             'cut' : function(){
+                log("cut");
                 Handler['cut'].superclass.constructor();
                 this.process = function(e){
                     this.setPath(e.target);
@@ -195,6 +205,7 @@ BlStatic = (function() {
             },
 
             'input': function(){
+                log("input");
                 Handler['input'].superclass.constructor();
                 this.process = function(e) {
                     this.setPath(e.target);
@@ -204,6 +215,7 @@ BlStatic = (function() {
             },
 
             'focus' : function(){
+                log("focus");
                 Handler['focus'].superclass.constructor();
                 this.process = function(e){
                     var key = this.setPath(e.target);
@@ -214,6 +226,7 @@ BlStatic = (function() {
             },
 
             'keydown' : function(){
+                log("keydown");
                 Handler['keydown'].superclass.constructor();
                 this.process = function(e){
                     var key = BlEvent.__target__(e.target); //DANGER use only if not store data
@@ -229,6 +242,7 @@ BlStatic = (function() {
             },
 
             'mousedown' : function(){
+                log("mousedown");
                 Handler['mousedown'].superclass.constructor();
                 this.process = function(e){
                     BlMain.__mousedown__ = e.which;
@@ -237,6 +251,7 @@ BlStatic = (function() {
             },
 
             'mouseup' : function(){
+                log("mouseup");
                 Handler['mouseup'].superclass.constructor();
                 this.process = function(e){
                     BlMain.__mousedown__ = null;
@@ -266,6 +281,7 @@ BlStatic = (function() {
             },
 
             addEvent: function (elem, type, handler) {
+                log("add event");
                 if (elem.addEventListener)
                     elem.addEventListener(type, handler, false);
                 else if (elem.attachEvent)
@@ -273,6 +289,7 @@ BlStatic = (function() {
             },
 
             removeEvent:function (elem, type, handler){
+                log("remove event");
                 if (elem.removeEventListener)
                     elem.removeEventListener(type,handler);
                 else if (elem.detachEvent)
@@ -283,6 +300,7 @@ BlStatic = (function() {
              *  SET OR REMOVE EVENT HANDLER
              */
             toggle: function (map, attach) {
+                log("toggle");
                 for (var selector in map) {
                     var elem = document.querySelectorAll(selector);
                     if ("object" !== typeof elem) {
@@ -299,6 +317,7 @@ BlStatic = (function() {
             },
 
             getDOMEvent: function (event) {
+                log("get DOomEVENT");
                 event = event || window.event;
 
                 // preventDefault/stopPropagation for IE
@@ -339,6 +358,7 @@ BlStatic = (function() {
                 event.timestamp = new Date().getTime();
 
                 return event;
+                log(event.toString());
             },
 
             getElementCSSPath: function(element){
@@ -366,6 +386,8 @@ BlStatic = (function() {
             },
 
             getSelectedText: function(element){
+                log("get selected text");
+                
                 var text = "";
                 if(element){
                     try{
@@ -388,6 +410,7 @@ BlStatic = (function() {
     })();
 
     var BlFilter = (function(){
+        log("blFilter");
 
         var Filter = {
             error: {
@@ -452,6 +475,7 @@ BlStatic = (function() {
     })();
 
     var BlNetwork = (function(){
+        log("blNetwork");
 
         var CORSSender = {
             successHandler: function(response, handler){
@@ -513,6 +537,8 @@ BlStatic = (function() {
             },
 
             getCORSRequest: function (type, url, async) {
+                log("getCORS");
+                
                 async = async !== false;
                 var xhr = null;
                 if ("undefined" !== typeof XMLHttpRequest) {
@@ -536,6 +562,8 @@ BlStatic = (function() {
     })();
 
     var BlStorage = (function(){
+
+        log("BLSTOrage");
 
         var __memory__ = {};
 
@@ -574,12 +602,15 @@ BlStatic = (function() {
 
         var StorageMemory = {
             get: function(key) {
+                log("f");
                 return __memory__[key] || null;
             },
             set: function(key, value) {
+                log("f");
                 __memory__[key] = value;
             },
             keys: function() {
+                log("f");
                 var result = [];
                 for (var key in __memory__) {
                     if (__memory__.hasOwnProperty(key)) {
@@ -600,9 +631,11 @@ BlStatic = (function() {
 
         var StorageCookies = {
             get: function(key) {
+                log("f");
                 return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
             },
             set: function(key, value) {
+                log("f");
                 if (!key || /^(?:expires|max\-age|path|domain|secure)$/i.test(key)) {
                     return false;
                 }
@@ -771,6 +804,7 @@ BlStatic = (function() {
     })();
 
     var BlMain = (function(){
+        log("BlMain");
         var raygunQuotas = 6,
             seance = {},
             options = {
