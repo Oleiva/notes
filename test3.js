@@ -1104,6 +1104,6 @@ function log(msg) {
 function log_er(msg) {
     // https://stackoverflow.com/questions/7505623/colors-in-javascript-console
     if (log_trigger) {
-        console.log(msg, 'background: #222; color: #bada55');
+        console.log('%c'+msg, 'color: red');
     }
 }
