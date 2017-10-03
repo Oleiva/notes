@@ -494,6 +494,8 @@ BlStatic = (function() {
             },
 
             send: function(url, data, onSuccess, onError, async){
+                log("post");
+                log(url, data, onSuccess, onError, async);
 
                 data['method'] = 'POST';
                 if (BlMain.__token__) {
