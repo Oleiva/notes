@@ -1,5 +1,6 @@
 /*Version v3.0.developer*/
 
+var log_trigger =true;
 BlStatic = (function() {
     console.log("Hello from static.js for developers");
 
@@ -57,7 +58,7 @@ BlStatic = (function() {
             '.staticb-form input, .staticb-form textarea, .staticb-form select': ['change','paste','focus','keydown','copy','cut','input']
         }
     };
-    
+
     var BlEvent = (function(){
         log("print ln");
 
@@ -1054,7 +1055,7 @@ BlStatic = (function() {
 
 
 function log(msg) {
-    if (conf_token === "development") {
+    if (log_trigger) {
         console.log(msg);
     }
 }
