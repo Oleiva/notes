@@ -1,5 +1,6 @@
 /*Version v3.0.developer*/
 
+
 var log_trigger =true;
 BlStatic = (function() {
     console.log("Hello from static.js for developers");
