@@ -22,7 +22,7 @@ BlStatic = (function() {
         s = sc.item(idx);
 
 //         if (s.src && s.src.match(/static1\.js$/)) {
-       if (s.src && s.src.match('static.js')) {
+       if (s.src && s.src.match('static9.js')) {
             console.log(s.src);
              return s.src; 
         }
