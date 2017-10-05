@@ -20,18 +20,15 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        var word ="static.js";
+        var word ='staticop.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
         if (s.src) {
-            if (s.src.text.contains(word)){
+            if (s.src.includes(word)){
                 console.log(s.src);
             }
-            
-        }else{
-             console.log("### "+s.src);
+
         }
-            
 
 //         var url = new URL(s.src);
 //         var c = url.searchParams.get('token');
