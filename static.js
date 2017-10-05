@@ -24,6 +24,7 @@ BlStatic = (function() {
 //         if (s.src && s.src.match(/static1\.js$/)) {
        if (s.src && s.src.match('static.js')) {
             console.log(s.src);
+             return s.src; 
         }
         
         var url = new URL(s.src);
