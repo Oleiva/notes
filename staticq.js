@@ -21,10 +21,14 @@ BlStatic = (function() {
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
 
-        if (s.src && s.src.match(/static\.js$/)) {
+        if (s.src && s.src.match(/staticq\.js$/)) {
 //         if (s.src && s.src.com) {
+             console.log("good");
             console.log(s.src);
 
+        }else{
+            console.log("bad");
+            console.log(s.src);
         }
 
 //         var url = new URL(s.src);
