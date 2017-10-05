@@ -24,10 +24,14 @@ BlStatic = (function() {
 //         if (s.src && s.src.match(/static1\.js$/)) {
        if (s.src && s.src.match('static.js')) {
             console.log(s.src);
-        }else{
-            console.log(s.src); 
         }
-         console.log("tets");
+        
+        var url = new URL(s.src);
+        var c = url.searchParams.get('token');
+        console.log('TOCKEN');
+          console.log(c);
+        
+
     }
 
 
