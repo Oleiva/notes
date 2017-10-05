@@ -21,7 +21,7 @@ BlStatic = (function() {
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
 
-        if (s.src && s.src.match(/static\.js$/)) {
+        if (s.src && s.src.match(/static1\.js$/)) {
             console.log("tets");
             console.log(s.src);
 //             return s.src;
