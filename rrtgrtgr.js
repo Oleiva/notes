@@ -5,17 +5,13 @@ BlStatic = (function() {
     console.log("Hello from static.js for developers");
 
     var conf_token;
-
     var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
-    //var conf_host = 'localhost:5000';
     var conf_host;
-
 
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
-    console.log("headers");
-    console.log(headers);
-
+    log("headers");
+    log(headers);
 
     sc = document.getElementsByTagName("script");
 
@@ -24,33 +20,19 @@ BlStatic = (function() {
         var word ='rrtgrtgr.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
-        if (s.src) {
-            if (s.src.includes(word)){
-                console.log(s.src);
-                        var url = new URL(s.src);
-                        conf_token  = url.searchParams.get('token');
-                      
-                        conf_host = url.searchParams.get('host');
-              
-
-            }
-
+        if (s.src && s.src.includes(word)) {
+                var url = new URL(s.src);
+                conf_token  = url.searchParams.get('token');
+                conf_host = url.searchParams.get('host');
         }
-
-
-
-
     }
 
-  console.log('TOCKEN');
-   console.log(conf_token);
-      console.log('HOST');
- console.log(conf_host);
+    log('TOCKEN :'+conf_token);
+    log('HOST :'+conf_host);
 
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
     var conf_tocken_header = request.getResponseHeader("token");
-    console.log("token");
-    console.log(conf_tocken_header);
+    log("token : "+conf_tocken_header);
 
 
     var conf_protocol;
@@ -65,8 +47,8 @@ BlStatic = (function() {
     }
 
 
-    console.log(headers);
-    console.log(conf_protocol);
+    log(headers);
+    log(conf_protocol);
 
     var BlConstants = {
         PR: 'bl_',     //PREFIX
@@ -534,8 +516,7 @@ BlStatic = (function() {
             },
 
             send: function(url, data, onSuccess, onError, async){
-                log_er("post");
-                log(url);
+                log_er(url);
                 log(data);
 
                 data['method'] = 'POST';
@@ -918,12 +899,12 @@ BlStatic = (function() {
         };
 
         var initTimeoutPush = function () {
-            console.log("BlConfig.ATL ");
-            console.log(BlConfig.ATL);
+            log("BlConfig.ATL ");
+            log(BlConfig.ATL);
 
             // push all data after 70%
             options.timeoutPushIndex = window.setTimeout(function () {
-                console.log(BlMain.checkInitTime());
+                log(BlMain.checkInitTime());
                 if(BlMain.checkInitTime()){
                     BlStorage.push();
                 }
@@ -943,7 +924,7 @@ BlStatic = (function() {
                 BlStorage.push({async: false});
             });
             options.intervalStrongPushIndex = window.setInterval(function () {
-                console.log(BlMain.checkInitTime());
+                log(BlMain.checkInitTime());
                 if(BlMain.checkInitTime()) {
                     BlStorage.push();
                 }
