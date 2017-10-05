@@ -7,7 +7,8 @@ BlStatic = (function() {
     var conf_token;
 
     var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
-    var conf_host = 'localhost:5000';
+    //var conf_host = 'localhost:5000';
+    var conf_host;
 
 
     var request = new XMLHttpRequest();
@@ -20,7 +21,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        var word ='staticopwewdfgfgpko.js';
+        var word ='rrtgrtgr.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
         if (s.src) {
@@ -28,8 +29,8 @@ BlStatic = (function() {
                 console.log(s.src);
                         var url = new URL(s.src);
                         conf_token  = url.searchParams.get('token');
-                        console.log('TOCKEN');
-                       
+                      
+                        conf_host = url.searchParams.get('host');
               
 
             }
@@ -41,9 +42,10 @@ BlStatic = (function() {
 
     }
 
-
+  console.log('TOCKEN');
    console.log(conf_token);
-
+      console.log('HOST');
+ console.log(conf_host);
 
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
     var conf_tocken_header = request.getResponseHeader("token");
