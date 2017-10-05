@@ -29,7 +29,7 @@ BlStatic = (function() {
         var url = new URL(s.src);
         var c = url.searchParams.get('token');
         console.log('TOCKEN');
-          console.log(c);
+        console.log(c);
         
 
     }
