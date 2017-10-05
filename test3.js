@@ -9,26 +9,29 @@ BlStatic = (function() {
     var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
     var conf_host = 'localhost:5000';
 
-    
-// var url_string = "";
-var url = new URL(window.location.href );
-var ur2 = new URL(document.URL);
-    
- console.log(url);
-     console.log(ur2);
-var c = url.searchParams.get("token");
-console.log(c);
-    
-    
-    
-    
-    
 
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
     console.log("headers");
     console.log(headers);
+
+
+    sc = document.getElementsByTagName("script");
+
+    for (idx = 0; idx < sc.length; idx++) {
+        s = sc.item(idx);
+
+        if (s.src && s.src.match(/some\.js$/)) {
+            console.log("tets");
+            console.log(s.src);
+            return s.src;
+        }
+    }
     
+    
+    
+  
+
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
     var conf_tocken_header = request.getResponseHeader("token");
     console.log("token");
