@@ -12,7 +12,10 @@ BlStatic = (function() {
     
 // var url_string = "";
 var url = new URL(window.location.href );
-    console.log(url);
+var ur2 = new URL(document.URL);
+    
+ console.log(url);
+     console.log(ur2);
 var c = url.searchParams.get("token");
 console.log(c);
     
