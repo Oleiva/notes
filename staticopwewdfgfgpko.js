@@ -4,7 +4,7 @@ var log_trigger =false;
 BlStatic = (function() {
     console.log("Hello from static.js for developers");
 
-    var conf_token = "development";
+    var conf_token;
 
     var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
     var conf_host = 'localhost:5000';
@@ -20,7 +20,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        var word ='staticopdfgpko.js';
+        var word ='staticopwewdfgfgpko.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
         if (s.src) {
