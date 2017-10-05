@@ -27,6 +27,7 @@ BlStatic = (function() {
 //             return s.src;
         }else{
           console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"); 
+            console.log(s.src); 
         }
          console.log("tets");
     }
