@@ -23,11 +23,8 @@ BlStatic = (function() {
 
 //         if (s.src && s.src.match(/static1\.js$/)) {
        if (s.src && s.src.match('static.js')) {
-            console.log("tets");
             console.log(s.src);
-//             return s.src;
         }else{
-          console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"); 
             console.log(s.src); 
         }
          console.log("tets");
