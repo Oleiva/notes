@@ -20,7 +20,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        var word ='staticop.js';
+        var word ='staticoppko.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
         if (s.src) {
