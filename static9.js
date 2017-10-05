@@ -24,13 +24,13 @@ BlStatic = (function() {
 //         if (s.src && s.src.match(/static1\.js$/)) {
        if (s.src && s.src.match('static9.js')) {
             console.log(s.src);
-             return s.src; 
+       
         }
         
-        var url = new URL(s.src);
-        var c = url.searchParams.get('token');
-        console.log('TOCKEN');
-        console.log(c);
+//         var url = new URL(s.src);
+//         var c = url.searchParams.get('token');
+//         console.log('TOCKEN');
+//         console.log(c);
         
 
     }
