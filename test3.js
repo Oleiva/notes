@@ -12,11 +12,14 @@ BlStatic = (function() {
 
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
+    console.log("headers");
+    console.log(headers);
+    
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
     var conf_tocken_header = request.getResponseHeader("token");
     console.log("token");
     console.log(conf_tocken_header);
-    
+
 
     var conf_protocol;
     if (conf_ssl_header !== null && conf_ssl_header.contains("https")) {
