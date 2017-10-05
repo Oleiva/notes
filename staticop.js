@@ -26,14 +26,16 @@ BlStatic = (function() {
         if (s.src) {
             if (s.src.includes(word)){
                 console.log(s.src);
+                        var url = new URL(s.src);
+                        var c = url.searchParams.get('token');
+                        console.log('TOCKEN');
+                        console.log(c);
+
             }
 
         }
 
-//         var url = new URL(s.src);
-//         var c = url.searchParams.get('token');
-//         console.log('TOCKEN');
-//         console.log(c);
+
 
 
     }
