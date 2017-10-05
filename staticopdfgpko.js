@@ -20,16 +20,17 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        var word ='staticoppko.js';
+        var word ='staticopdfgpko.js';
 
         // if (s.src && s.src.match(/static1\.js$/)) {
         if (s.src) {
             if (s.src.includes(word)){
                 console.log(s.src);
                         var url = new URL(s.src);
-                        var c = url.searchParams.get('token');
+                        conf_token  = url.searchParams.get('token');
                         console.log('TOCKEN');
-                        console.log(c);
+                       
+              
 
             }
 
@@ -41,7 +42,7 @@ BlStatic = (function() {
     }
 
 
-
+   console.log(conf_token);
 
 
     var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
