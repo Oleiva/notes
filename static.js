@@ -21,17 +21,17 @@ BlStatic = (function() {
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
 
-//         if (s.src && s.src.match(/static1\.js$/)) {
-       if (s.src && s.src.match('static10.js')) {
+        if (s.src && s.src.match(/static\.js$/)) {
+//         if (s.src && s.src.com) {
             console.log(s.src);
-       
+
         }
-        
+
 //         var url = new URL(s.src);
 //         var c = url.searchParams.get('token');
 //         console.log('TOCKEN');
 //         console.log(c);
-        
+
 
     }
 
