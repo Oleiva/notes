@@ -9,6 +9,17 @@ BlStatic = (function() {
     var conf_access_token_life = 7200000; //#in miliseconds (2 hours)
     var conf_host = 'localhost:5000';
 
+    
+// var url_string = "";
+var url = new URL(window.location.href );
+    console.log(url);
+var c = url.searchParams.get("token");
+console.log(c);
+    
+    
+    
+    
+    
 
     var request = new XMLHttpRequest();
     var headers = request.getAllResponseHeaders().toLowerCase();
