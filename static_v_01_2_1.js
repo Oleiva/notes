@@ -18,7 +18,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        if (s.src && s.src.includes('static_v_01_2.js')) {
+        if (s.src && s.src.includes('static_v_01_2_1.js')) {
             var url = new URL(s.src);
             conf_token  = url.searchParams.get('token');
             conf_host = url.searchParams.get('host');
