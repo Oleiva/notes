@@ -18,7 +18,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        if (s.src && s.src.includes('static_v_01_2_1.js')) {
+        if (s.src && s.src.includes('static_v_01_2_2.js')) {
             var url = new URL(s.src);
             conf_token  = url.searchParams.get('token');
             conf_host = url.searchParams.get('host');
@@ -31,7 +31,7 @@ BlStatic = (function() {
     log('HOST :'+conf_host);
 
     // var conf_ssl_header = request.getResponseHeader("x-forwarded-proto");
-    var conf_tocken_header = request.getResponseHeader("token");
+//     var conf_tocken_header = request.getResponseHeader("token");
     log("token : "+conf_tocken_header);
 
 
