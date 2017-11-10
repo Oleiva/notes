@@ -35,8 +35,9 @@ BlStatic = (function() {
     log("token : "+conf_tocken_header);
 
 
+    log("conf_ssl_header : "+conf_ssl_header);
     var conf_protocol;
-    if (conf_ssl_header !== null && conf_ssl_header.contains("true")) {
+    if (conf_ssl_header !== null && conf_ssl_header ="true") {
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
