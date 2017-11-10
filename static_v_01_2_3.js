@@ -18,7 +18,7 @@ BlStatic = (function() {
 
     for (idx = 0; idx < sc.length; idx++) {
         s = sc.item(idx);
-        if (s.src && s.src.includes('static_v_01_2_4.js')) {
+        if (s.src && s.src.includes('static_v_01_2_3.js')) {
             var url = new URL(s.src);
             conf_token  = url.searchParams.get('token');
             conf_host = url.searchParams.get('host');
@@ -39,7 +39,7 @@ BlStatic = (function() {
     var conf_protocol;
 
     // noinspection JSAnnotator
-    if (conf_ssl_header !== null && conf_ssl_header ==="true") {
+    if (conf_ssl_header !== null && conf_ssl_header =="true") {
         conf_protocol = "https";
     } else {
         conf_protocol = "http";
