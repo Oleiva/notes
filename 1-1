@@ -1,0 +1,162 @@
+Start Using Map And Set In Your Javascript Application
+Most of the Java developers aware of Map and Set in details and it is part of the collection. Many of the javascript developers not using Map and Set in their application and in this post will help them to learn more about Map and Set in Javascript. Let’s start using Map and Set in your javascript application.
+http://nodesimplified.com/start-using-map-set-javascript-application/
+
+Map
+First, we will see what is Map. Map object stores data into key-value pairs and data can be retrieved using the keys.
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap) //Output :: {1 =&amp;gt; "javascript"}
+Keys in the Map object are unique and when key-value with the already existing key is added then the new value will override the existing key value.
+
+1
+2
+3
+4
+5
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap) //Output :: {1 =&amp;gt; "javascript"}
+nodeMap.set(1,"node.js"); 
+console.log(nodeMap) //Output :: {1 =&amp;gt; "node.js"} 
+ 
+
+How To Retrieve Data
+Value can be retrieved using the key. In the following example, 1 is the key used to retrieve “javascript”
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.get(1)) //Output :: javascript
+ 
+
+Properties
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.size) //Output :: 1
+ 
+
+Methods
+clear()
+Removes all key-value pair from Map object.
+
+1
+2
+3
+4
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+nodeMap.clear();
+console.log(nodeMap.size) //Output :: 0
+delete(key)
+To Remove specific key from the Map Object.
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.delete(1)) //Output :: true
+has(key)
+It returns true if the key exists in the Map Object and It returns false If the key doesn’t exist.
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.has(1)) //Output :: true
+keys()
+It returns all the keys available in the Map Object.
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.keys()) //Output :: 1
+Values()
+It returns all the Values available in the Map Object.
+
+1
+2
+3
+let nodeMap = new Map()
+nodeMap.set(1,"javascript");
+console.log(nodeMap.values()) //Output :: javascript
+ 
+
+Set
+A set object will store unique data of any datatype. Either it can be a primitive type or an object reference
+
+1
+2
+3
+let nodeSet = new Set()
+nodeSet.add("javascript");
+console.log(nodeSet) //Output :: javascript
+A value in the Set may only occur once; it is unique in the Set’s collection.
+
+1
+2
+3
+4
+let nodeSet = new Set()
+nodeSet.add("javascript");
+nodeSet.add("javascript");
+console.log(nodeSet) //Output :: javascript
+if you want to remove duplicate then you can use Set(). Using it you can remove the duplicates present.
+ 
+
+How To Retrieve Data
+for..of.. can be used to retrieve the data. We need to iterate through the set object to get all the data.
+
+1
+2
+3
+4
+5
+let nodeSet = new Set()
+nodeSet.add("javascript");
+for (let item of nodeSet){
+    console.log(item);
+}
+ 
+
+Properties
+1
+2
+3
+let nodeSet = new Set()
+nodeSet.add("javascript");
+console.log(nodeSet.size) //Output :: 1
+ 
+
+Methods
+clear()
+It removes all the data from the set.
+
+keys()
+It is similar to the values() method and it will the return value object.
+
+values()
+It will return values available in the Set Object.
+
+entries()
+It returns an iterator object with array of values.
+
+Hope this article will be helpful. Please share with your developer friends and colleagues.
+ 
+Reference:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
